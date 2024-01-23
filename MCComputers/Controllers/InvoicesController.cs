@@ -25,7 +25,7 @@ namespace MCComputers.InvoicesController
             _context.Invoices.Add(invoice);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetInvoice", new { id = invoice.InvoiceID }, invoice);
+            return CreatedAtAction("GetInvoice", new { id = invoice.Id }, invoice);
         }
 
         // GET: api/Invoices
@@ -42,18 +42,19 @@ namespace MCComputers.InvoicesController
             return Ok(invoice);
         }
         // GET: api/Invoices/id
-        [HttpGet("{InvoiceID}")]
-
-        public async Task<ActionResult<List<Invoices>>> GetAInvoice(int InvoiceID)
+        [HttpGet("{CustomerID}")]
+        public async Task<ActionResult<List<Invoices>>> GetAInvoice(int CustomerID)
         {
-            var invoice = await _context.Invoices.ToListAsync();
+            var invoices = await _context.Invoices
+                .Where(i => i.CustomerID == CustomerID)
+                .ToListAsync();
 
-            if (invoice == null)
+            if (!invoices.Any())
             {
                 return NotFound();
             }
 
-            return Ok(invoice);
+            return Ok(invoices);
         }
     }
 }
