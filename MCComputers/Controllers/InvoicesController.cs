@@ -28,9 +28,23 @@ namespace MCComputers.InvoicesController
             return CreatedAtAction("GetInvoice", new { id = invoice.InvoiceID }, invoice);
         }
 
-        // GET: api/Invoices/id
+        // GET: api/Invoices
         [HttpGet]
         public async Task<ActionResult<List<Invoices>>> GetInvoice()
+        {
+            var invoice = await _context.Invoices.ToListAsync();
+
+            if (invoice == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(invoice);
+        }
+        // GET: api/Invoices/id
+        [HttpGet("{InvoiceID}")]
+
+        public async Task<ActionResult<List<Invoices>>> GetAInvoice(int InvoiceID)
         {
             var invoice = await _context.Invoices.ToListAsync();
 

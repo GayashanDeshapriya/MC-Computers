@@ -4,7 +4,7 @@ namespace MCComputers.Entities
 {
     public class Products
     {
-        [Key] public int ProductID { get; set; }
+        [Key] public int Id { get; set; }
         public required string ProductName { get; set; }
         public required string ProductDescription { get; set; }
         public decimal ProductPrice { get; set; }
