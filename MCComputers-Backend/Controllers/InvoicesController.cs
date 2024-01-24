@@ -42,19 +42,17 @@ namespace MCComputers.InvoicesController
             return Ok(invoice);
         }
         // GET: api/Invoices/id
-        [HttpGet("{CustomerID}")]
-        public async Task<ActionResult<List<Invoices>>> GetAInvoice(int CustomerID)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Invoices>> GetInvoice(int id)
         {
-            var invoices = await _context.Invoices
-                .Where(i => i.CustomerID == CustomerID)
-                .ToListAsync();
+            var invoice = await _context.Invoices.FindAsync(id);
 
-            if (!invoices.Any())
+            if (invoice == null)
             {
                 return NotFound();
             }
 
-            return Ok(invoices);
+            return Ok(invoice);
         }
     }
 }

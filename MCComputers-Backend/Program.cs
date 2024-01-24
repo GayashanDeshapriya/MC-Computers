@@ -1,6 +1,16 @@
 using MCComputers.Data;
 using Microsoft.EntityFrameworkCore;
+using QuestPDF.Fluent;
+using QuestPDF.Infrastructure;
+using QuestPDF.Previewer;
 using System;
+
+QuestPDF.Settings.License = LicenseType.Community;
+Document.Create(container =>
+{
+
+})
+    .ShowInPreviewer();
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,8 +37,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors(policy =>policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
+
