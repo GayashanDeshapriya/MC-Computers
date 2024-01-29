@@ -20,7 +20,7 @@ namespace MCComputers.InvoicesController
 
         // POST: api/Invoices
         [HttpPost]
-        public async Task<ActionResult<Invoices>> PostInvoice(Invoices invoice)
+        public async Task<ActionResult<InvoiceModel>> PostInvoice(InvoiceModel invoice)
         {
             _context.Invoices.Add(invoice);
             await _context.SaveChangesAsync();
@@ -30,7 +30,7 @@ namespace MCComputers.InvoicesController
 
         // GET: api/Invoices
         [HttpGet]
-        public async Task<ActionResult<List<Invoices>>> GetInvoice()
+        public async Task<ActionResult<List<InvoiceModel>>> GetInvoice()
         {
             var invoice = await _context.Invoices.ToListAsync();
 
@@ -42,10 +42,10 @@ namespace MCComputers.InvoicesController
             return Ok(invoice);
         }
         // GET: api/Invoices/id
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Invoices>> GetInvoice(int id)
+        [HttpGet("{InvoiceNumber}")]
+        public async Task<ActionResult<InvoiceModel>> GetInvoice(string InvoiceNumber)
         {
-            var invoice = await _context.Invoices.FindAsync(id);
+            var invoice = await _context.Invoices.FindAsync(InvoiceNumber);
 
             if (invoice == null)
             {

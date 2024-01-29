@@ -1,16 +1,8 @@
 using MCComputers.Data;
 using Microsoft.EntityFrameworkCore;
-using QuestPDF.Fluent;
-using QuestPDF.Infrastructure;
-using QuestPDF.Previewer;
 using System;
 
-QuestPDF.Settings.License = LicenseType.Community;
-Document.Create(container =>
-{
 
-})
-    .ShowInPreviewer();
 
 var builder = WebApplication.CreateBuilder(args);
 

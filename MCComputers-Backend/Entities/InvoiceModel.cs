@@ -1,32 +1,22 @@
-﻿namespace MCComputers.Entities
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MCComputers.Entities
 {
     public class InvoiceModel
-{
-    public int InvoiceNumber { get; set; }
-    public DateTime IssueDate { get; set; }
-    public DateTime DueDate { get; set; }
+    {
+         public int Id { get; set; }
 
-    public Address SellerAddress { get; set; }
-    public Address CustomerAddress { get; set; }
+        [Key] public required string InvoiceNumber { get; set; }
+        public required string CustomerName { get; set; }
+        public required string ProductName { get; set; }
+        public DateTime TransactionDate { get; set; }
+        public decimal Discount { get; set; }
+        public int Quantity { get; set; }
+        public decimal TotalAmount { get; set; }
+        public decimal BalanceAmount { get; set; }
 
-    public List<OrderItem> Items { get; set; }
-    public string Comments { get; set; }
+
+    }
 }
 
-public class OrderItem
-{
-    public string Name { get; set; }
-    public decimal Price { get; set; }
-    public int Quantity { get; set; }
-}
-
-public class Address
-{
-    public string CompanyName { get; set; }
-    public string Street { get; set; }
-    public string City { get; set; }
-    public string State { get; set; }
-    public object Email { get; set; }
-    public string Phone { get; set; }
-}
-}

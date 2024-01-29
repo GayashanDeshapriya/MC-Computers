@@ -1,0 +1,83 @@
+<div class="container py-5">
+    <form class="container" [formGroup]="invoiceForm" (ngSubmit)="saveInvoice()">
+        <div class="card" style="width: 1200px;">
+            <h4 class="card-title">{{pagetitle}}</h4>
+            <div class="card-header">
+
+
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Invoice Number</label>
+                            <span class="text-danger">*</span>
+                            <input formControlName="InvoiceNumber" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Customer Name</label>
+                            <span class="text-danger">*</span>
+                            <input formControlName="CustomerName" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Product Name</label>
+                            <span class="text-danger">*</span>
+                            <input formControlName="ProductName" class="form-control" />
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Discount</label>
+                            <span class="text-danger">*</span>
+                            <input formControlName="Discount" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Quantity</label>
+                            <span class="text-danger">*</span>
+                            <input formControlName="Quantity" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Total Amount</label>
+                            <span class="text-danger">*</span>
+                            <input formControlName="TotalAmount" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">BalanceAmount</label>
+                            <span class="text-danger">*</span>
+                            <input formControlName="BalanceAmount" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="">Transaction Date</label>
+                            <span class="text-danger">*</span>
+                            <input formControlName="TransactionDate" class="form-control" />
+                        </div>
+                    </div>
+                    
+                    <div class="py-3">
+                        <button class="btn btn-success">Create Invoice</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
