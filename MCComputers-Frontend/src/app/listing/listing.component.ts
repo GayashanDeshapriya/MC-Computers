@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MasterService } from '../service/master.service';
 
 @Component({
   selector: 'app-listing',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrl: './listing.component.css'
 })
 export class ListingComponent {
+  constructor(private service:MasterService) {}
+
+  InvoiceList: any;
+
+  ngOnInit(): void{
+    this.LoadInvoice();
+  }
+
+  LoadInvoice() {
+    this.service.GetAllInvoice().subscribe(res => {
+      this.InvoiceList = res;
+      
+    });
+  }
 
 }

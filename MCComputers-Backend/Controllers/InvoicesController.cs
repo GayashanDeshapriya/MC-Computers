@@ -25,7 +25,7 @@ namespace MCComputers.InvoicesController
             _context.Invoices.Add(invoice);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetInvoice", new { id = invoice.Id }, invoice);
+            return CreatedAtAction("GetInvoice", new { id = invoice.InvoiceNumber }, invoice);
         }
 
         // GET: api/Invoices

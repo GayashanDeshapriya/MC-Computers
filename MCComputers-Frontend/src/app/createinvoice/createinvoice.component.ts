@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
+import { MasterService } from '../service/master.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-createinvoice',
@@ -8,10 +11,10 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrl: './createinvoice.component.css'
 })
 export class CreateinvoiceComponent {
-  constructor(private builder : FormBuilder) { }
+  constructor(private builder : FormBuilder, private services:MasterService, private router:Router) { }
   pagetitle = 'Create Invoice';
   
- 
+ masterInvoice: any;
 
   ngOnInit():void {}
 
@@ -29,5 +32,11 @@ export class CreateinvoiceComponent {
   saveInvoice() {
     console.log(this.invoiceForm.value);
   }
+
+  // Get invoice data and assign it to masterInvoices
+getCustomer() {
+ 
+}
+
 }
 

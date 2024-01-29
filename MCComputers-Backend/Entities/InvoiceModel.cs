@@ -5,8 +5,6 @@ namespace MCComputers.Entities
 {
     public class InvoiceModel
     {
-         public int Id { get; set; }
-
         [Key] public required string InvoiceNumber { get; set; }
         public required string CustomerName { get; set; }
         public required string ProductName { get; set; }
