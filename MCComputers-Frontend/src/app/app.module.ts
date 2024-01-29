@@ -1,14 +1,23 @@
 import { NgModule } from '@angular/core';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { HttpClientModule } from '@angular/common/http';
-import { InvoiceComponent } from './components/invoice/invoice.component';
-import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { InvoiceServiceService } from './service/invoice-service.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ListingComponent } from './listing/listing.component';
+import { CreateinvoiceComponent } from './createinvoice/createinvoice.component';
 
 @NgModule({
-  declarations: [InvoiceComponent], // AppComponent should be in declarations
-  imports: [BrowserModule, MatSlideToggleModule, HttpClientModule],
-  providers: [InvoiceServiceService], // provide your service here
+  declarations: [
+    AppComponent,
+    ListingComponent,
+    CreateinvoiceComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
