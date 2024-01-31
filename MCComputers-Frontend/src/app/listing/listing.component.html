@@ -1,43 +1,47 @@
 <div class="container py-5">
     <div class="card">
-        <h4 class="card-title py-3 px-3">Listing items</h4>
+        <h4 class="card-title py-3 px-3">Listing Invoices</h4>
         <div class="card-header">
-            <a class="btn btn-success" routerLink="createinvoice">Create New item</a>
+            <a class="btn btn-success" routerLink="createinvoice">Create New Invoice</a>
         </div>
         <div class="card-body">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Invoice Number</th>
-                        <th>Customer Name</th>
-                        <th>Product Name</th>
-                        <th>Transaction Date</th>
-                        <th>Discount</th>
-                        <th>Quantity</th>
-                        <th>Total Amount</th>
-                        <th>Balance Amount</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let item of InvoiceList">
-                        <td >{{item.Id}}</td>
-                        <td>{{item.InvoiceNumber}}</td>
-                        <td>{{item.CustomerName}}</td>
-                        <td>{{item.ProductName}}</td>
-                        <td>{{item.TransactionDate}}</td>
-                        <td>{{item.Discount}}</td>
-                        <td>{{item.Quantity}}</td>
-                        <td>{{item.TotalAmount}}</td>
-                        <td>{{item.BalanceAmount}}</td>
+           
+                <table class="table table-bordered text-dark">
+                    <thead >
+                        <tr>
+                            <th>Invoice Number</th>
+                            <th>Customer Name</th>
+                            <th>Product Name</th>
+                            <th>Transaction Date</th>
+                            <th>Discount</th>
+                            <th>Quantity</th>
+                            <th>Total Amount</th>
+                            <th>Balance Amount</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of InvoiceList">
+                            <td>{{item.invoiceNumber}}</td>
+                            <td>{{item.customerName}}</td>
+                            <td>{{item.productName}}</td>
+                            <td>{{item.transactionDate}}</td>
+                            <td>{{item.discount}}</td>
+                            <td>{{item.quantity}}</td>
+                            <td>{{item.totalAmount}}</td>
+                            <td>{{item.balanceAmount}}</td>
 
-                        <td>
-                            <a class="btn btn-success">Print</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            <td>
+                                <a class="btn btn-success" (click)="(item.invoiceNumber)">Print</a>
+                                <a class="btn btn-success px-3" (click)="(item.invoiceNumber)">Download</a>
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            
         </div>
     </div>
 </div>
+
+<ngx-extended-pdf-viewer [src]="pdfurl" [textLayer]="true" height="500px"></ngx-extended-pdf-viewer>

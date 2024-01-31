@@ -1,12 +1,16 @@
 using MCComputers.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
-
+using DinkToPdf;
+using DinkToPdf.Contracts;
+using MCComputers.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+
+builder.Services.AddScoped<PDFgenerator>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

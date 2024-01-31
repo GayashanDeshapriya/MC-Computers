@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ListingComponent } from './listing/listing.component';
 import { CreateinvoiceComponent } from './createinvoice/createinvoice.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxExtendedPdfViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
