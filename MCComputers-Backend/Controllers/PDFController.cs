@@ -19,12 +19,12 @@ namespace MCComputers.Controllers
           
         }
 
-        [HttpPost("{InvoiceNumber}")]
+        [HttpGet("{InvoiceNumber}")]
         public IActionResult GeneratePdf(string InvoiceNumber)
         {
             byte[] pdfBytes = _pdfGenerator.GeneratorPdf(InvoiceNumber);
 
-            return File(pdfBytes, "application/pdf", "generated.pdf");
+            return File(pdfBytes, "application/pdf", "Invoice.pdf");
         }
 
     }

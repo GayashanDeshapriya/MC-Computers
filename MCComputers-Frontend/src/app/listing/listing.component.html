@@ -32,8 +32,8 @@
                             <td>{{item.balanceAmount}}</td>
 
                             <td>
-                                <a class="btn btn-success" (click)="(item.invoiceNumber)">Print</a>
-                                <a class="btn btn-success px-3" (click)="(item.invoiceNumber)">Download</a>
+                                <a class="btn btn-success" >Print</a>
+                                <a class="btn btn-success px-3" (click)="DownloadInvoice(item.invoiceNumber)">Download</a>
                                 
                             </td>
                         </tr>
@@ -44,4 +44,4 @@
     </div>
 </div>
 
-<ngx-extended-pdf-viewer [src]="pdfurl" [textLayer]="true" height="500px"></ngx-extended-pdf-viewer>
+<ngx-extended-pdf-viewer [textLayer]="true" height="500px"></ngx-extended-pdf-viewer>
