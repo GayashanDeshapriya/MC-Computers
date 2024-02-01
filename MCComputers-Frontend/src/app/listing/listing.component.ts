@@ -11,7 +11,10 @@ export class ListingComponent implements OnInit {
   constructor(private service:MasterService) {}
 
   InvoiceList: any;
-  
+  pdfSrc: any;
+  showPdfViewer: boolean = false; // Variable to control visibility
+  selectedInvoiceNumber: any;
+
   invoiceNumber: any;
 
   ngOnInit(): void{
@@ -43,5 +46,10 @@ export class ListingComponent implements OnInit {
     });
   }
 
-  
+  PreviewInvoice(invoiceNumber: any) {
+    this.service.GenerateInvoicePDF(invoiceNumber).subscribe((data: any) => {
+      this.pdfSrc = data;
+    });
+  }
+ 
 }
